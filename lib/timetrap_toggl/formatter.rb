@@ -31,7 +31,7 @@ class TimetrapToggl::Formatter
 
   def project
     config.projects.find do |p|
-      p["name"].downcase.gsub(/[^a-zA-Z\d]/, '-') == code.downcase
+      code.downcase == p["name"].downcase.gsub(/[^a-zA-Z\d\s]/, '').gsub(/\s+/, '-')
     end
   end
 
