@@ -20,7 +20,7 @@ $ timetrap display --start 'last monday' --end 'last friday' --format toggl
 ## Installation
 
 ```bash
-$ gem install timetrap-toggl
+$ gem install timetrap_toggl
 
 $ echo "require 'timetrap_toggl'" > ./path/to/formatters/toggl.rb
 ```
