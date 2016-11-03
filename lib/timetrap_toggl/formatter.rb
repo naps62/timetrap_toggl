@@ -30,7 +30,9 @@ class TimetrapToggl::Formatter
   end
 
   def project
-    config.projects.find { |p| p["name"].downcase == code.downcase }
+    config.projects.find do |p|
+      p["name"].downcase.gsub(/[^a-zA-Z\d]/, '-') == code.downcase
+    end
   end
 
   def task_id

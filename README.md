@@ -22,7 +22,7 @@ $ timetrap display --start 'last monday' --end 'last friday' --format harvest
 ```bash
 $ gem install timetrap-toggl
 
-$ echo "require 'timetrap-toggl'" > ./path/to/formatters/toggl.rb
+$ echo "require 'timetrap_toggl'" > ./path/to/formatters/toggl.rb
 ```
 
 ## Configuration

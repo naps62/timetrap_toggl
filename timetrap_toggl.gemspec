@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'timetrap_toggl/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'timetrap-toggl'
+  s.name        = 'timetrap_toggl'
   s.version     = TimetrapToggl::VERSION
   s.date        = '2014-06-12'
   s.summary     = 'A toggl formatter for Timetrap'
