@@ -1,13 +1,8 @@
-# timetrap-harvest
+# timetrap-toggl
 
-A Harvest formatter for Timetrap
+A Toggl formatter for Timetrap
 
-`timetrap-harvest` bridges the gap between your entries in Timetrap and your
-project tasks in Harvest, allowing for incredibly easy timesheet submissions.
-
-[![Gem Version](https://badge.fury.io/rb/timetrap-harvest.svg)](http://badge.fury.io/rb/timetrap-harvest)
-[![Code Climate](https://codeclimate.com/github/dblandin/timetrap-harvest.png)](https://codeclimate.com/github/dblandin/timetrap-harvest)
-[![Build Status](https://travis-ci.org/dblandin/timetrap-harvest.png?branch=master)](https://travis-ci.org/dblandin/timetrap-harvest)
+`timetrap-toggl` allows you to submit your harvest timesheets to [Toggl](https://toggl.com/).
 
 __timetrap-harvest__'s initial development was sponsored by [dscout](https://dscout.com). Many thanks to them!
 
@@ -25,9 +20,9 @@ $ timetrap display --start 'last monday' --end 'last friday' --format harvest
 ## Installation
 
 ```bash
-$ gem install timetrap-harvest
+$ gem install timetrap-toggl
 
-$ echo "require 'timetrap-harvest'" > ./path/to/formatters/harvest.rb
+$ echo "require 'timetrap-toggl'" > ./path/to/formatters/toggl.rb
 ```
 
 ## Configuration
@@ -36,22 +31,16 @@ $ echo "require 'timetrap-harvest'" > ./path/to/formatters/harvest.rb
 # ~/.timetrap.yml
 ---
 ...
-harvest:
-  email:     'email@example.com'
-  password:  'password'
-  subdomain: 'company'
-  round_in_minutes: 30 # defaults to 15
-  aliases:
-    code:   '[project id] [task id]'
-    design: '[project id] [task id]'
-    misc:   '[project id] [task id]'
+toggl:
+  api_token: "YOUR_API_TOKEN"
+  workspace: "My workspace"
 ```
 
 ## Dependencies
 
-timetrap-harvest depends upon the timetrap gem
+timetrap-toggl depends upon the timetrap gem
 
-When installing timetrap-harvest, timetrap is installed for you as a runtime
+When installing timetrap-toggl, timetrap is installed for you as a runtime
 dependency.
 
 ## Contributing
@@ -64,5 +53,5 @@ dependency.
 
 ## Thanks
 
-* [Parker Selbert](https://github.com/sorentwo) for reviewing the initial commits
-* [dscout](https://dscout.com) - for their sponsorship
+* [dblandin](https://github.com/dblandin) for creating timetrap-harvest, which
+    was the basis for this one

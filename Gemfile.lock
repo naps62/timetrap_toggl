@@ -8,6 +8,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.7.0)
     chronic (0.10.2)
     coderay (1.1.0)
     diff-lcs (1.2.5)
@@ -49,6 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   pry (~> 0.10, >= 0.10.0)
   rspec (~> 3.0, >= 3.0.0)
   timetrap-toggl!

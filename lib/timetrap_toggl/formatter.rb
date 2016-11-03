@@ -11,11 +11,11 @@ class TimetrapToggl::Formatter
   def format
     if project["id"]
       {
-        description: entry[:note],
-        duration: seconds_for_time(entry[:start], entry[:end]),
-        start:   TogglV8::API.new.iso8601(entry[:start]),
-        pid: project["id"],
-        created_with: "timetrap-toggl",
+        "description" => description,
+        "duration" => duration,
+        "start" =>   start,
+        "pid" => project["id"],
+        "created_with" => "timetrap-toggl",
       }
     else
       {
@@ -23,6 +23,10 @@ class TimetrapToggl::Formatter
         note: entry[:note]
       }
     end
+  end
+
+  def start
+    TogglV8::API.new.iso8601(entry[:start].to_datetime)
   end
 
   def project
@@ -43,7 +47,15 @@ class TimetrapToggl::Formatter
     end
   end
 
+  def description
+    entry[:note].gsub("@#{code}", '').strip
+  end
+
+  def duration
+    seconds_for_time(entry[:start], entry[:end])
+  end
+
   def seconds_for_time(start_time, end_time)
-    end_time - start_time
+    (end_time - start_time).to_i
   end
 end

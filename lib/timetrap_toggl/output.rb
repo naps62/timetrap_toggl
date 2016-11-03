@@ -3,10 +3,11 @@ class TimetrapToggl::Output
   SUBMITTED_HEADER = "Submitted entries\n#{LINE_DIVIDER}"
   FAILED_HEADER    = "Failed entries\n#{LINE_DIVIDER}"
 
-  attr_reader :results
+  attr_reader :results, :projects
 
-  def initialize(results = {})
+  def initialize(results, projects)
     @results = results
+    @projects = projects
   end
 
   def generate
@@ -14,13 +15,19 @@ class TimetrapToggl::Output
 
     unless submitted.empty?
       messages << SUBMITTED_HEADER
-      messages += submitted.map { |submitted| success_message(submitted[:notes]) }
+      messages += submitted.map do |submitted|
+        project = projects.find { |p| p["id"] == submitted["pid"] }
+        success_message("#{project["name"]} - #{submitted["description"]}")
+      end
       messages << "\n"
     end
 
     unless failed.empty?
       messages << FAILED_HEADER
-      messages += failed.map { |failed| failed_message(failed[:note], failed[:error]) }
+      messages += failed.map do |failed|
+        project = projects.find { |p| p["id"] == failed["pid"] }
+        failed_message(failed[:note], failed[:error])
+      end
       messages << "\n"
     end
 

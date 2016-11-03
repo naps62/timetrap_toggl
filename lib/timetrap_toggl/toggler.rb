@@ -1,19 +1,18 @@
 class TimetrapToggl::Toggler
-  attr_reader :results, :client
+  attr_reader :entries, :client
 
-  def initialize(results, client)
-    @results = results
+  def initialize(entries, client)
+    @entries = entries
     @client  = client
   end
 
   def toggl
-    results.each do |result|
-      if result.key? :error
-        failed << result
+    entries.each do |entry|
+      if entry.key? :error
+        failed << entry
       else
-        client.post(result)
-
-        submitted << result
+        client.create_time_entry(entry)
+        submitted << entry
       end
     end
 
