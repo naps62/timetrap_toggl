@@ -9,7 +9,7 @@ class TimetrapToggl::Formatter
   end
 
   def format
-    if project["id"]
+    if project && project["id"]
       {
         "description" => description,
         "duration" => duration,
@@ -19,7 +19,7 @@ class TimetrapToggl::Formatter
       }
     else
       {
-        error: "Project #{project["name"]} does not exist",
+        error: "Project #{code} does not exist",
         note: entry[:note]
       }
     end
