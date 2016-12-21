@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    timetrap-toggl (1.0.1)
+    timetrap_toggl (0.2.2)
       timetrap (~> 1.7, >= 1.7.0)
       togglv8 (~> 1.2.1)
 
@@ -53,7 +53,7 @@ DEPENDENCIES
   awesome_print
   pry (~> 0.10, >= 0.10.0)
   rspec (~> 3.0, >= 3.0.0)
-  timetrap-toggl!
+  timetrap_toggl!
 
 BUNDLED WITH
    1.13.5

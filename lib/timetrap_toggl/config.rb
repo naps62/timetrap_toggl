@@ -34,6 +34,10 @@ class TimetrapToggl::Config
     @workspace ||= client.workspaces.find { |w| w["name"] == config["workspace"] }
   end
 
+  def aliases
+    config['aliases']
+  end
+
   def projects
     @projects ||= client.projects(workspace["id"])
   end

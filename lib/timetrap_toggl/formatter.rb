@@ -30,8 +30,14 @@ class TimetrapToggl::Formatter
   end
 
   def project
-    config.projects.find do |p|
-      code.downcase == p["name"].downcase.gsub(/[^a-zA-Z\d\s]/, '').gsub(/\s+/, '-')
+    if config.aliases[code]
+      config.projects.find do |p|
+        p["name"] == config.aliases[code]
+      end
+    else
+      config.projects.find do |p|
+        code == p["name"].downcase.gsub(/[^a-zA-Z\d\s]/, '').gsub(/\s+/, '-')
+      end
     end
   end
 
@@ -45,7 +51,7 @@ class TimetrapToggl::Formatter
 
   def code
     if match = TOGGABLE_REGEX.match(entry[:note])
-      code = match[1]
+      code = match[1].downcase
     end
   end
 
